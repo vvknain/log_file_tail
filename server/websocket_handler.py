@@ -3,6 +3,7 @@ import os
 import json
 from tornado import websocket as ws
 from tornado.websocket import WebSocketClosedError
+from tornado.iostream import StreamClosedError
 
 
 class SocketHandler(ws.WebSocketHandler):
@@ -42,8 +43,10 @@ class SocketHandler(ws.WebSocketHandler):
         for line in loglines:
             try:
                 self.write_message(line)
-            except WebSocketClosedError:
-                print("Socket client is closed")
+            except WebSocketClosedError as e:
+                print("Socket client is closed / error")
+            except StreamClosedError as e:
+                print("Stream closed error")
 
     def on_message(self, message):
         """

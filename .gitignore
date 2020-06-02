@@ -1,3 +1,4 @@
 .idea/
 *.pyc
 socket_app/node_modules
+README.md
