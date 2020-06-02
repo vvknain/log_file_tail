@@ -25,6 +25,7 @@ There are two parts to the project
 3. A script fill_data.py is included in server directory with a data.txt file
   - run the script (python fill_data.py)
   - go to the client, you should see the content of the file getting displayed
+  - you can run script again and again to simulate updates in the text file, log will be pushed to client
   
   
 Concurrency Stats:
